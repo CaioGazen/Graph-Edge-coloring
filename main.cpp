@@ -1,4 +1,4 @@
-// C++ program to illustrate Edge Coloring
+// Programa em C++ para exemplificar 
 #include <bits/stdc++.h>
 using namespace std;
  
