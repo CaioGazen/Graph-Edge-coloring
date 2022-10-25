@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/Aulas/iff/2022.1/EDA/T2/base",
-      "program": "e:/Aulas/iff/2022.1/EDA/T2/base/build/Debug/outDebug",
+      "cwd": "e:/Aulas/iff/2022.1/EDA/T2",
+      "program": "e:/Aulas/iff/2022.1/EDA/T2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
