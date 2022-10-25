@@ -3,5 +3,6 @@
 #include "grafo.h"
 
 int main(){
-    int grafo[20] ={1, 3,};
+    int grafo[2][4] = {1, 3};
+    int edge_colors[2];
 }
