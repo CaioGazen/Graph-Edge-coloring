@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int NumeroDeVertices, NumeroDeArestas;
+
 int** ReadGrafo(int** grafo){
     //  Declarar variaveis
     FILE *fGrafo;
@@ -26,10 +28,20 @@ int** ReadGrafo(int** grafo){
             fscanf(fGrafo, "%d", &grafo[i][j]);
         }
     }
+    fclose(fGrafo);
     return grafo;
 }
 
+int ChecarCores(int** grafo, int Linha){
+    for (int i = 0; i < NumeroDeVertices; i++){
+        if(grafo[Linha][] == Cor){
+            return 0
+        }
+    }
+}
+
 int main(){
+    int Cor = 2;
     int** grafo = ReadGrafo(grafo);
     for(int i=0; i< 4; i++){
         for(int j=0;j < 4;j++){
@@ -37,4 +49,21 @@ int main(){
         }
         printf("\n");
     }
+    
+    for(int i = 0; i < NumeroDeVertices; i++){
+        for(int j = 0; j < NumeroDeVertices; j++){
+            if(grafo[i][j] == 1){
+                Cor = 2;
+                while(grafo[i][j] == 1){
+                    if (ChecarLinha(grafo, i)&&ChecarColuna(grafo, j)){
+                        grafo[i][j] = Cor;
+                    }
+                    else{
+                        Cor ++;
+                    }
+                }
+            }
+        }
+    }
+
 }
