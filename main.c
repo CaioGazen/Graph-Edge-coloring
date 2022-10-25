@@ -4,7 +4,6 @@
 int** ReadGrafo(int** grafo){
     //  Declarar variaveis
     FILE *fGrafo;
-    int NumeroDeVertices, NumeroDeArestas;
     //  Abrir arquivo
     fGrafo = fopen("grafo.txt","r");
     if(fGrafo == NULL){
