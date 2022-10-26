@@ -1,3 +1,4 @@
 base/
 build/
 .vscode/
+build/Debug/main.o

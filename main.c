@@ -1,4 +1,4 @@
-// Nomes: Caio Pedroso Gazen, Vitor sepulveda Monteiro, Raffael Cruz Ferreira, Edvander Sperber Selos Silva, Matheus Soares Simao dos Santos
+// Nomes: Caio Pedroso Gazen, Vitor sepulveda Monteiro, Rafael Cruz Ferreira, Edvander Sperber Selos Silva, Matheus Soares Simao dos Santos
 
 #include <stdio.h>
 #include <stdlib.h> 
