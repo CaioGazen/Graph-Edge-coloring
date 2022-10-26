@@ -78,3 +78,4 @@ int main(){
     printf("\nCores usadas: %d",c-1);
     return 0;
 }
+fsf
