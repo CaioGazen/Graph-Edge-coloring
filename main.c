@@ -8,6 +8,7 @@ int** LerGrafo(int** grafo){
     FILE *fGrafo;
     //  Abrir arquivo
     fGrafo = fopen("grafo.txt","r");
+    // Verificar se o arquivo foi aberto
     if(fGrafo == NULL){
         printf("\n\n Erro Na leitura do arquivo\n\n");
     }
@@ -34,6 +35,7 @@ int** LerGrafo(int** grafo){
 }
 
 int ChecarCores(int** grafo, int Linha, int Coluna, int Cor){
+
     //  Percorer a linha e coluna do grafo simultaneamente
     for (int i = 0; i < NumeroDeVertices; i++){
         //  Se existir uma aresta com a cor em questão na linha, retornar Falso
@@ -53,6 +55,7 @@ int main(){
     //  Chamar a função que le o Grafo
     int** grafo = LerGrafo(grafo);
 
+    // imprimir a lista de adjacencia
     printf("Lista de Adjacencia antes de colorir\n\n");
     for(int i=0; i< 4; i++){
         printf("      ");
@@ -62,6 +65,7 @@ int main(){
         printf("\n");
     }
     printf("\n");
+
     //  Percorer todos os pontos da lista de adjacencia 
     for(int i = 0; i < NumeroDeVertices; i++){
         for(int j = 0; j < NumeroDeVertices; j++){
@@ -84,8 +88,11 @@ int main(){
             }
         }
     }
+
+    // Declarar variavel para contar o numero de cores
     int NumeroDeCores = 0;
     printf("Lista de Adjacencia Colorida\n\n");
+    // percorer a lista de adjacencia que ja foi colorida, imprimindo os pontos e contando as cores
     for(int i=0; i< 4; i++){
         printf("      ");
         for(int j=0;j < 4;j++){
