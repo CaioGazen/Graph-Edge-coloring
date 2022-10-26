@@ -1,5 +1,7 @@
+// Nomes: Caio Pedroso Gazen, Vitor sepulveda Monteiro, Raffael Cruz Ferreira, Edvander Sperber Selos Silva, Matheus Soares Simao dos Santos
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> 
 
 // Declarar variaveis globais
 int NumeroDeVertices, NumeroDeArestas;
