@@ -103,7 +103,7 @@ int main(){
         }
         printf("\n");
     }
-    printf("\nForam usadas %d Cores para colorir o grafo\n", NumeroDeCores);
+    printf("\nForam usadas %d Cores para colorir o grafo\n\n", NumeroDeCores);
 
     // Liberar a memoria que foi alocada
     for(int i = 0; grafo[i] != NULL; i++){
