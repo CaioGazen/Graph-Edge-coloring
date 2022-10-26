@@ -3,7 +3,7 @@
 
 int NumeroDeVertices, NumeroDeArestas;
 
-int** ReadGrafo(int** grafo){
+int** LerGrafo(int** grafo){
     //  Declarar variaveis
     FILE *fGrafo;
     //  Abrir arquivo
@@ -11,38 +11,49 @@ int** ReadGrafo(int** grafo){
     if(fGrafo == NULL){
         printf("\n\n Erro Na leitura do arquivo\n\n");
     }
-    // Ler a quantidade de vertices e arestas
+    //  Ler a quantidade de vertices e arestas
     fscanf(fGrafo, "%d %d", &NumeroDeVertices, &NumeroDeArestas);
 
-    //alocar a quantidade necessaria de memoria
+    //  alocar a quantidade necessaria de memoria
     grafo = calloc(NumeroDeVertices, sizeof(int*) + 1);
     for(int i = 0; i < NumeroDeVertices; i++){  
         grafo[i] = calloc(NumeroDeVertices, sizeof(int*));
     }
-    //Alocar um ponteiro nulo para facilitar a liberação da memoria no final do programa
+    //  Alocar um ponteiro nulo para facilitar a liberação da memoria no final do programa
     grafo[NumeroDeVertices] = NULL;
 
-    // Popular grafo com os dados do .txt
+    //  Popular grafo com os dados do .txt
     for(int i=0; i< NumeroDeVertices; i++){
         for(int j=0;j < NumeroDeVertices;j++){
             fscanf(fGrafo, "%d", &grafo[i][j]);
         }
     }
+    //  Fechar o .txt
     fclose(fGrafo);
     return grafo;
 }
 
-int ChecarCores(int** grafo, int Linha){
+int ChecarCores(int** grafo, int Linha, int Coluna, int Cor){
+    //  Percorer a linha e coluna do grafo simultaneamente
     for (int i = 0; i < NumeroDeVertices; i++){
-        if(grafo[Linha][] == Cor){
-            return 0
+        //  Se existir uma aresta com a cor em questão na linha, retornar Falso
+        if(grafo[Linha][i] == Cor){
+            return 0;
+        }
+        //  Se existir uma aresta com a cor em questão na coluna, retornar Falso
+        if(grafo[i][Coluna] == Cor){
+            return 0;
         }
     }
+    // Se nao existir uma aresta com a cor em questão na coluna ou na linha retornar Verdadeiro
+    return 1;
 }
 
 int main(){
-    int Cor = 2;
-    int** grafo = ReadGrafo(grafo);
+    //  Chamar a função que le o Grafo
+    int** grafo = LerGrafo(grafo);
+    
+    //  estetica dps
     for(int i=0; i< 4; i++){
         for(int j=0;j < 4;j++){
             printf("%d ", grafo[i][j]);
@@ -50,20 +61,32 @@ int main(){
         printf("\n");
     }
     
+    //  Percorer todos os pontos da lista de adjacencia 
     for(int i = 0; i < NumeroDeVertices; i++){
         for(int j = 0; j < NumeroDeVertices; j++){
+            //  Checar se a aresta ja foi colorida
             if(grafo[i][j] == 1){
-                Cor = 2;
+                //  Comecar pela primeira cor
+                int Cor = 2;
+                //  Repetir enquanto a aresta não for colorida
                 while(grafo[i][j] == 1){
-                    if (ChecarLinha(grafo, i)&&ChecarColuna(grafo, j)){
+                    // Verificar se existem arestas adjacentes com a mesma cor
+                    if (ChecarCores(grafo, i, j, Cor)){
+                        // Se nao houver arestas adjacentes com a cor em questão colorir a aresta
                         grafo[i][j] = Cor;
                     }
                     else{
+                        // Se ja existir uma aresta com a cor em questão passar para a proxima cor
                         Cor ++;
                     }
                 }
             }
         }
     }
-
+    for(int i=0; i< 4; i++){
+        for(int j=0;j < 4;j++){
+            printf("%d ", grafo[i][j]);
+        }
+        printf("\n");
+    }
 }
