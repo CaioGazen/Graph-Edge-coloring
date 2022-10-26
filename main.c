@@ -49,18 +49,19 @@ int ChecarCores(int** grafo, int Linha, int Coluna, int Cor){
     return 1;
 }
 
-int main(){
+int main(){ 
     //  Chamar a função que le o Grafo
     int** grafo = LerGrafo(grafo);
-    
-    //  estetica dps
+
+    printf("Lista de Adjacencia antes de colorir\n\n");
     for(int i=0; i< 4; i++){
+        printf("      ");
         for(int j=0;j < 4;j++){
             printf("%d ", grafo[i][j]);
         }
         printf("\n");
     }
-    
+    printf("\n");
     //  Percorer todos os pontos da lista de adjacencia 
     for(int i = 0; i < NumeroDeVertices; i++){
         for(int j = 0; j < NumeroDeVertices; j++){
@@ -83,10 +84,17 @@ int main(){
             }
         }
     }
+    int NumeroDeCores = 0;
+    printf("Lista de Adjacencia Colorida\n\n");
     for(int i=0; i< 4; i++){
+        printf("      ");
         for(int j=0;j < 4;j++){
             printf("%d ", grafo[i][j]);
+            if (grafo[i][j] - 1 > NumeroDeCores){
+                NumeroDeCores = grafo[i][j] -1;
+            }
         }
         printf("\n");
     }
+    printf("\nForam usadas %d Cores para colorir o grafo\n", NumeroDeCores);
 }
